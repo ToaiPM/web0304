@@ -105,7 +105,7 @@
 <script>
     function ThongBaoTrangThai(){
         var soluong = '<?php echo isset($_SESSION["soluong_tong"]) ? $_SESSION["soluong_tong"] : 0; ?>';
-        var idnguoidung = '<?php echo isset($_SESSION["idnguoidung"]) ? $_SESSION["idnguoidung"] : 0; ?>';
+        var idnguoidung = '<?php echo isset($_SESSION["user_id"]) ? $_SESSION["user_id"] : 0; ?>';
         if(idnguoidung!=0){
             $('.nguoidung_dn').css('display','none');
             $('.nguoidung_dx').css('display','block');
@@ -131,7 +131,7 @@
     function postDangNhap(){
         $.ajax({
             type: 'POST',
-            url: '/quanly/nguoidung/nguoi_dung_dang_nhap.php',
+            url: '/admin/authen/authen_login.php',
             data: {
                 tendangnhap: $('#tendangnhap').val(),
                 matkhau: $('#matkhau').val()
@@ -142,7 +142,9 @@
                     $('.nguoidung_dn').css('display','none');
                     $('.nguoidung_dx').css('display','block');
                     $('.modal_dangnhap').css('display','none');
-                    window.location="/quan-ly";
+                    if(res.role_name == 'admin' || res.role_name == 'user'){
+                        window.location="/index.php?action=admin/index";
+                    }  
                 }else{
                     alert('Đăng nhập thất bại');
                 }
@@ -153,14 +155,14 @@
     function DangXuat(){
         $.ajax({
             type: 'POST',
-            url: '/quanly/nguoidung/nguoi_dung_dang_xuat.php',
+            url: '/admin/authen/authen_logout.php',
             data: {},
             dataType: 'json',
             success: function(res){
                 if(res.status = 200){
                     $('.nguoidung_dn').css('display','block');
                     $('.nguoidung_dx').css('display','none');
-                    window.location="/index.php";
+                    window.location="/";
                 }
             }
         })
