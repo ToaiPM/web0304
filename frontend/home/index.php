@@ -27,7 +27,5 @@
 
     <!-- Footer -->
     <?php include_once __SITE_PATH . '/frontend/layouts/footer.php'; ?>
-
-    
 </body>
 </html>
