@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/public/css/all.min.css">
     <link rel="stylesheet" href="/public/css/grid.css">
-    <link rel="stylesheet" href="/public/css/main.css">
-    
     <link rel="stylesheet" href="/public/css/admin.css">
     <link rel="stylesheet" href="/public/css/jquery.datetimepicker.css">
 
@@ -28,7 +26,8 @@
 <?php include_once __SITE_PATH . '/admin/layouts/dothi.php';  ?>
 
 <?php include_once __SITE_PATH . '/admin/layouts/content_footer.php';  ?>
-    <script>
+
+<script>
     $('#codinh').click(function(){
         if(this.checked == true){
         $('.content').addClass("thaydoicontent")

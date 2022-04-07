@@ -1,7 +1,7 @@
 <div class="navigation">
   <ul>
     <li>
-      <a href="/quan-ly">
+      <a href="/index.php?action=admin/index">
         <span class="icon"><i class="fa-solid fa-house"></i></span>
         <span class="title">Trang quản trị</span>
       </a>
@@ -20,13 +20,13 @@
       </a>
     </li>
     <li>
-      <a href="/quan-ly/hang-san-xuat">
+      <a href="/index.php?action=admin/category/index">
         <span class="icon"><i class="fa-brands fa-product-hunt"></i></span>
         <span class="title">Hãng sản xuất</span>
       </a>
     </li>
     <li>
-      <a href="">
+      <a href="/index.php?action=admin/product/index">
         <span class="icon"><i class="fa-brands fa-product-hunt"></i></span>
         <span class="title">Sản phẩm</span>
       </a>

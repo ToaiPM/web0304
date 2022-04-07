@@ -167,14 +167,14 @@ html,body{
 .modal_dangnhap{
     position: fixed;
     background-color: rgba(0,0,0,0.3);
-    top: -80px;
+    top: -200px;
     left: 0;
     right: 0;
     bottom: 0;
     display: none;
     align-items: center;
     justify-content: center;
-    animation: fadeIn linear 0.1s;
+    animation: modalchuyendong linear 0.3s;
 }
 .active_modal_dangnhap{
     display: flex;
@@ -521,12 +521,14 @@ html,body{
 .content_mobile .nguoidung_gr .nguoidung_dx:hover{
     background-color: #8b8b8b;   
 }
-@keyframes fadeIn{
+@keyframes modalchuyendong{
     from{
+        transform: translateY(-100px);
         opacity: 0;
     }
     to{
-        opacity: 0.4;
+        transform: translateY(0);
+        opacity: 1;
     }
 }
 @media (max-width: 540px){

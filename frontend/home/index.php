@@ -7,7 +7,7 @@
     <link rel="icon" href="/public/img/icon/link_icon.jpg" type="image/gif" sizes="16x16">
     <link rel="stylesheet" href="/public/css/all.min.css">
     <link rel="stylesheet" href="/public/css/grid.css">
-    <link rel="stylesheet" href="/public/css/main.css">
+    <link rel="stylesheet" href="/public/css/frontend.css">
     <link rel="stylesheet" href="/public/css/home.css">
     <script src="/public/js/jquery.min.js"></script>
     <title>Trang home</title>
