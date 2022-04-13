@@ -15,7 +15,6 @@
     $boloc_content_ten = isset($_POST['boloc_content_ten']) ? $_POST['boloc_content_ten'] : '';
     $h = new category();
     $tongsodong = $h->countTotal($timkiem_header, $boloc_content_ma, $boloc_content_ten);  
-    print($tongsodong);die;
 ?>
 <?php if($tongsodong > 0){ ?>
 <div class="action_gr">

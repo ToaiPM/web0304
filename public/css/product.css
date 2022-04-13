@@ -34,3 +34,82 @@
      margin-top: 5px;
      background-color: #fff;
 }
+ /* Nhóm nút thêm xóa in Xuất Excel */
+ .action_gr{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 5px 8px 5px;
+}
+
+.action_gr .chucnang_gr .thaotac{
+    width: 90px;
+    padding: 4px 0px;
+    cursor: pointer;
+    background-color: #fff;      
+}
+
+/* Danh sách hãng sản xuất */
+.sanpham_gr #danhsach{
+    margin: 20px 0px 0px 0px;
+}
+.sanpham_gr #danhsach table{
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;   
+}
+.sanpham_gr #danhsach th,
+.sanpham_gr #danhsach table td{
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+.sanpham_gr #danhsach tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+.sanpham_gr #danhsach tr:hover{
+    background-color: #ddd;
+}
+.sanpham_gr #danhsach th{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    background-color: #04AA6D;
+    color: white;
+}
+.capnhat_hsx{
+    color: #0171e8;
+}
+.capnhat_hsx:hover{
+    cursor: pointer;
+}
+.xemchitiet_hsx{
+    color: #059e05;
+}
+.xemchitiet_hsx:hover{
+    cursor: pointer;
+}
+.product_public{
+    cursor: pointer;
+}
+.product_public .chiase{
+    color: #0171e8;
+}
+.product_public .khongchiase{
+    color: rgb(209, 7, 7);
+}
+
+/* Định dạng nút phân trang */
+.PhanTrang{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .ClickPage{
+    padding: 0 4px;
+  }
+  .SoTrang{
+    padding: 0 4px;
+  }
+  .CurrentPage{
+    color:red;
+  }

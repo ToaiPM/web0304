@@ -73,7 +73,7 @@
                     </select>
                 </td>
                 <td class="cot_title">Ngày nhập&nbsp;</td>
-                <td><input class="nhaptukhoa" type="text" id="product_purchase_price"></td>
+                <td><input class="nhaptukhoa" type="text" id="boloc_created_at"></td>
             </tr>
             <tr>
                 <td class="cot_title">giá bán: từ&nbsp;</td>
@@ -129,14 +129,14 @@
         });
         $('#category_id').chosen({width:"100%"});
         $('#product_status').chosen({width:"100%"});
-        $('#product_purchase_price').datetimepicker({format: 'd/m/Y',lang: 'vi'});
+        $('#boloc_created_at').datetimepicker({format: 'd/m/Y',lang: 'vi'});
 
         function DanhSach(){
             var timkiem_header = $('#timkiem_header').val();
             var boloc_category_id = $('#category_id').val();
             var boloc_product_name = $('#product_name').val();
             var boloc_product_status = $('#product_status').val();
-            var boloc_product_purchase_price = $('#product_purchase_price').val();
+            var boloc_created_at = $('#boloc_created_at').val();
             var boloc_product_price_1 = $('#product_price_1').val();
             var boloc_product_price_2 = $('#product_price_2').val();
             $.ajax({
@@ -147,7 +147,7 @@
                     boloc_category_id: boloc_category_id,
                     boloc_product_name: boloc_product_name,
                     boloc_product_status: boloc_product_status,
-                    boloc_product_purchase_price: boloc_product_purchase_price,
+                    boloc_created_at: boloc_created_at,
                     boloc_product_price_1: boloc_product_price_1,
                     boloc_product_price_2: boloc_product_price_2,
                     TrangHienTai: $('#TrangHienTai').val(),
@@ -160,6 +160,21 @@
         }
         DanhSach();
 
+        function SanPhamChiaSe(product_id){
+            $.ajax({
+                type: 'POST',
+                url: '/admin/product/product_public.php',
+                data: {product_id: product_id},
+                dataType: 'json',
+                success: function(res){
+                    if(res.status == 200){
+                        DanhSach();
+                    }else{
+                        alert('Không thể thực hiện');
+                    }
+                }
+            });
+        }
         function postThem(){
             if($('#ma_hsx').val()==''){
                 alert('Mã không được bỏ trống');
@@ -210,6 +225,7 @@
         }
 
         function getThem(){
+            alert(1)
             $('.headerthem_title').html('Thêm mới');
             $('#id_hsx').val('');
             $('#ma_hsx').val('');
