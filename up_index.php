@@ -34,7 +34,7 @@ function uploadfile(){
   form_data.append("filename",filename);
   //Ajax to send file to upload
   $.ajax({
-      url: "load.php",                      //Server api to receive the file
+      url: "up_xuly.php",                      //Server api to receive the file
              type: "POST",
              dataType: 'script',
              cache: false,

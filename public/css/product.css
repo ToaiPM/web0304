@@ -113,3 +113,86 @@
   .CurrentPage{
     color:red;
   }
+
+  /* Modal thêm/ sửa */
+  .modal_them{
+    position: fixed;
+    top: -150px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    background: rgb(0, 0, 0,0.4);
+    display: none;
+}
+.modal_them .content_them{
+    background-color: #fff;
+    box-shadow: 1px 1px 2px #8a8c8c;
+    overflow: hidden;
+    border-radius: 8px;
+    animation: modalchuyendong linear 0.3s;   
+}
+.modal_them .content_them .headerthem{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #0549ca;
+    padding: 10px 14px;
+    width: 600px;   
+}
+.modal_them .content_them .headerthem .headerthem_title{
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;    
+}
+.modal_them .content_them .headerthem .headerthem_icon{
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;    
+}
+.modal_them .content_them .body{
+    margin-top: 10px;   
+}
+.modal_them .content_them .body .info_gr{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 16px;    
+}
+.modal_them .content_them .body .info_gr .info_label{
+    font-size: 16px;
+    text-align: right;
+    width: 24%;   
+}
+.modal_them .content_them .body .info_gr .info_text{
+    width: 100%;
+    padding: 2px 3px;    
+}
+.modal_them .content_them .body .info_gr_btn{
+    text-align: center;
+    margin: 10px 0px 16px 0px;
+}
+.modal_them .content_them .body .info_gr_btn .btn_them{
+    width: 72px;
+    padding: 3px 0px;   
+}
+.modal_them .content_them .body .info_gr_btn .btn_huy{
+    width: 72px;
+    padding: 3px 0px;   
+}
+.active_them{
+    display: flex;
+}
+@keyframes modalchuyendong{
+    from{
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

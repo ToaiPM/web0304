@@ -22,7 +22,7 @@
 ?>
 <?php if($tongsodong > 0){ ?>
 <div class="action_gr">
-    <p class="soluong_hangsanxuat">Có (<?php echo $tongsodong; ?>) hãng sản xuất</p>
+    <p class="soluong_hangsanxuat">Có (<?php echo $tongsodong; ?>) sản phẩm</p>
     <div class="chucnang_gr">
         <button onclick="getThem()" class="thaotac"><span class="icon" style="color:#023ff7"><i class="fa-solid fa-plus"></i></span> Thêm</button>
         <button onclick="Xoa()" class="thaotac"><span class="icon" style="color:#f70202"><i class="fa-solid fa-trash-can"></i></span> Xóa</button>
@@ -83,7 +83,7 @@
         <td style="text-align:center"><span onclick="XemChitiet('<?php echo $id; ?>')" class="xemchitiet_hsx"><i class="fa-solid fa-eye"></i></span></td>
         <td style="text-align:center"><span onclick="getSua('<?php echo $id; ?>')" class="capnhat_hsx" title="Sửa"><i class="fa-solid fa-pencil"></i></span></td>
         <td style="text-align:center">
-            <input type="checkbox" class="mang" value="<?php echo $id; ?>">
+            <input type="checkbox" class="mang" value="<?php echo $product_id; ?>">
         </td>
     </tr>
     <?php } ?>

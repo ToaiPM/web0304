@@ -159,7 +159,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 2px 16px;    
+    padding: 4px 16px;    
 }
 .modal_them .content_them .body .info_gr .info_label{
     font-size: 16px;   

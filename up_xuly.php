@@ -1,5 +1,5 @@
 <?php
-
+  print_r($_POST);die;
   $filename = $_POST['filename'];
 
   $target_directory = "files/";

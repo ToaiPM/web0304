@@ -62,5 +62,17 @@
             $service = new dataservice();
             return $service->ExecuteNonQuery($sql);
         }
+
+        public function Them($category_id,$product_title,$product_purchase_price,$product_price,$product_discount,$product_description,$product_amount,$product_public,$ten_moi){
+            $sql = "INSERT INTO product (category_id,product_title,product_purchase_price,product_price,product_discount,product_description,product_amount,product_public,product_thumbnail) VALUES($category_id,'$product_title',$product_purchase_price,$product_price,$product_discount,'$product_description',$product_amount,$product_public,'$ten_moi')";
+            $service = new dataservice();
+            return $service->ExecuteNonQuery($sql);
+        }
+
+        public function Xoa($chuoiID){
+            $sql = "DELETE FROM product WHERE product_id IN ($chuoiID)";
+            $service = new dataservice();
+            return $service->ExecuteNonQuery($sql);
+        }
     }
 ?>

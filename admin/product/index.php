@@ -49,7 +49,7 @@
             <tr>
                 <td class="cot_title">Tên hãng&nbsp;</td>
                 <td>
-                    <select class="nhaptukhoa" type="text" id="category_id">
+                    <select class="nhaptukhoa" type="text" id="category_id_search">
                         <option value="">--Tất cả---</option>
                         <?php
                             for($i=0 ; $i< count($info_category) ; $i++){
@@ -97,18 +97,58 @@
 <div class="modal_them">
     <div class="content_them">
         <div class="headerthem">
-            <span class="headerthem_title"></span>
+            <span class="headerthem_title">Thêm mới</span>
             <span onclick="Huy()" class="headerthem_icon">[X]</span>
         </div>
         <div class="body">
             <div class="info_gr">
-                <input type="hidden" id="id_hsx">
-                <span class="info_label">Mã hãng</span>
-                <input type="text" class="info_text" id="ma_hsx">
+                <input type="hidden" id="product_id">
+                <span class="info_label">Hãng sản xuất&nbsp;</span>
+                <select type="text" class="info_text" id="cate_id">
+                <option value="">--Vui lòng chọn---</option>
+                    <?php
+                        for($i=0 ; $i< count($info_category) ; $i++){
+                            $category_id = $info_category[$i]['category_id'];
+                            $category_name = $info_category[$i]['category_name'];
+                    ?>
+                    <option value="<?php echo $category_id; ?>"><?php echo $category_name; ?></option>
+                    <?php } ?>
+                </select>
             </div>
             <div class="info_gr">
-                <span class="info_label">Tên hãng</span>
-                <input type="text" class="info_text" id="ten_hsx">
+                <span class="info_label">Tên sản phẩm&nbsp;</span>
+                <input type="text" class="info_text" id="product_title">
+            </div>
+            <div class="info_gr">
+                <span class="info_label">Giá nhập&nbsp;</span>
+                <input type="number" class="info_text" id="product_purchase_price">
+            </div>
+            <div class="info_gr">
+                <span class="info_label">Giá bán&nbsp;</span>
+                <input type="number" class="info_text" id="product_price">
+            </div>
+            <div class="info_gr">
+                <span class="info_label">Giảm giá&nbsp;</span>
+                <input type="number" class="info_text" id="product_discount">
+            </div>
+            <div class="info_gr">
+                <span class="info_label">Mô tả&nbsp;</span>
+                <textarea  class="info_text" name="" id="product_description" cols="30" rows="5"></textarea>
+            </div>
+            <div class="info_gr">
+                <span class="info_label">Số lượng&nbsp;</span>
+                <input type="number" class="info_text" id="product_amount">
+            </div>
+            <div class="info_gr">
+                <span class="info_label">Hình ảnh&nbsp;</span>
+                <input type="file" class="info_text" id="product_thumbnail">
+            </div>
+            <div class="info_gr">
+                <span class="info_label">Tình trạng&nbsp;</span>
+                <select type="text" class="info_text" id="product_public">
+                    <option value="1">Public</option>
+                    <option selected value="0">Private</option>
+                </select>
             </div>
             <div class="info_gr_btn">
                 <button onclick="postThem()" class="btn_them">Thực hiện</button>
@@ -127,13 +167,14 @@
             $('.navigation').removeClass("thaydoinavigation")
             }
         });
-        $('#category_id').chosen({width:"100%"});
+        $('#cate_id').chosen({width:"100%"});
+        $('#category_id_search').chosen({width:"100%"});
         $('#product_status').chosen({width:"100%"});
         $('#boloc_created_at').datetimepicker({format: 'd/m/Y',lang: 'vi'});
 
         function DanhSach(){
             var timkiem_header = $('#timkiem_header').val();
-            var boloc_category_id = $('#category_id').val();
+            var boloc_category_id = $('#category_id_search').val();
             var boloc_product_name = $('#product_name').val();
             var boloc_product_status = $('#product_status').val();
             var boloc_created_at = $('#boloc_created_at').val();
@@ -181,14 +222,35 @@
             }else if($('#ten_hsx').val()==''){
                 alert('Tên hãng không được bỏ trống');
             }else{
-                if($('#id_hsx').val()==''){
+                if($('#product_id').val()==''){
+                    var formData = new FormData();
+                    var product_id = $('#product_id').val();
+                    var category_id = $('#cate_id').val();
+                    var product_title = $('#product_title').val();
+                    var product_purchase_price = $('#product_purchase_price').val();
+                    var product_price = $('#product_price').val();
+                    var product_discount = $('#product_discount').val();
+                    var product_description = $('#product_description').val();
+                    var product_amount = $('#product_amount').val();
+                    var product_public = $('#product_public').val();
+                    var product_thumbnail = $('#product_thumbnail').prop('files')[0];
+                    formData.append("product_id",product_id);
+                    formData.append("category_id",category_id);
+                    formData.append("product_title",product_title);
+                    formData.append("product_purchase_price",product_purchase_price);
+                    formData.append("product_price",product_price);
+                    formData.append("product_discount",product_discount);
+                    formData.append("product_description",product_description);
+                    formData.append("product_amount",product_amount);
+                    formData.append("product_public",product_public);
+                    formData.append("product_thumbnail",product_thumbnail);
                     $.ajax({
                         type: 'POST',
-                        url: '/admin/category/category_add.php',
-                        data: {
-                            ma: $('#ma_hsx').val(),
-                            ten: $('#ten_hsx').val()
-                        },
+                        url: '/admin/product/product_add.php',
+                        data: formData,
+                        cache: false,
+                        contentType: false,
+                        processData: false,
                         dataType: 'json',
                         success: function(res){
                             if(res.status == 200){
@@ -225,11 +287,15 @@
         }
 
         function getThem(){
-            alert(1)
             $('.headerthem_title').html('Thêm mới');
-            $('#id_hsx').val('');
-            $('#ma_hsx').val('');
-            $('#ten_hsx').val('');
+            $('#cate_id').val('').trigger("chosen:updated");
+            $('#product_title').val('');
+            $('#product_purchase_price').val('');
+            $('#product_price').val('');
+            $('#product_discount').val('');
+            $('#product_description').val('');
+            $('#product_amount').val('');
+            $('#product_thumbnail').val('');
             $('.modal_them').addClass('active_them');
         }
         function Huy(){
@@ -288,7 +354,7 @@
                 if(kq == true){
                     $.ajax({
                         type: 'POST',
-                        url: '/admin/category/category_delete.php',
+                        url: '/admin/product/product_delete.php',
                         data: {
                             chuoiID: giatri
                         },
