@@ -29,17 +29,26 @@
             <input type="text" id="TimKiem" class="timkiem_txt" placeholder="Bạn cần tìm sản phẩm nào ...">
             <button onclick="DanhSach()" class="timkiem_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
-        <a href="/gio-hang" class="giohang_gr">
+        <a href="/index.php?action=frontend/cart/index" class="giohang_gr">
             <i class="fa-solid fa-cart-shopping"></i>
             <span id="thongbao_giohang" class="giohang_sl">0</span>
         </a>
         <div class="nguoidung_gr">
             <span onclick="getDangNhap()" class="nguoidung_dn">Đăng nhập</span>
-            <span onclick="DangXuat()" class="nguoidung_dx">Đăng xuất</span>
+            <span onclick="user()" class="nguoidung_dx">
+                <img class="icon_user" src="/public/img/icon/user.png" alt="">
+            </span>
         </div>
     </div>
 </div>
-
+<div class="nguoidung_tt">
+    <a onclick="DangXuat()" href="#">Đăng xuất</a>
+    <?php 
+        if(isset($_SESSION['role_name'])){
+            if($_SESSION['role_name']=='admin' || $_SESSION['role_name']=='user'){ ?>
+    <a href="/index.php?action=admin/index">Vào quản trị</a>
+    <?php } } ?>
+</div>
 <!-- Menu mobile -->
 <div class="mobile_menu">
     <span onclick="BatMenuMobile()" class="bieutuong_bars"><i class="fa-solid fa-bars"></i></span>
@@ -178,5 +187,8 @@
     function TatMenuMobile(){
         $('.content_mobile').removeClass('hienthi_content_mobile');
         $('.overlay').removeClass('hien_overlay');
+    }
+    function user(){
+        $('.nguoidung_tt').toggleClass('active');
     }
 </script>

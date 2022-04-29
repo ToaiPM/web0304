@@ -1,0 +1,94 @@
+.content{
+    border: 1px solid #d3d1d0;
+    padding-bottom: 8px;
+}
+.mtop{
+    margin-bottom: 10px;
+}
+.hinhanh{
+
+}
+.name{
+    font-size: 16px;
+    padding: 5px 15px;
+}
+.price{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 15px;
+}
+.price_old{
+    font-size: 16px;
+    color: #333;
+    text-decoration-line: line-through;
+}
+.price_curent{
+    font-size: 16px;
+    color: red;
+}
+.hanhdong{
+    display: flex;
+    align-items: center;
+    margin: 5px 15px;
+}
+.mua{
+    padding: 5px 14px;
+    background: #221f1f;
+    color: #fff;
+    margin: 0px 2px;
+    border: 1px solid #333;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 14px;
+}
+.xem{
+    padding: 5px 14px;
+    background: #1A3EED;
+    color: #fff;
+    margin: 0px 2px;
+    border: 1px solid #03135e;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* Thông báo dữ liệu rỗng */
+.dulieurong{
+    margin: 5px 0px;
+    padding: 5px 0px;
+    text-align: center;
+}
+.thongbao{
+    color: #f24907;
+    font-size: 16px;
+    font-weight: 600;
+}
+.icon_thongbao{
+    color: #f24907;
+    font-size: 16px;
+}
+
+/* Khi có dữ liệu */
+.soluongdt_home{
+    margin: 10px 0px 5px 10px;
+    color: red;
+}
+
+/* Định dạng nút phân trang */
+.PhanTrang{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .ClickPage{
+    padding: 0 4px;
+  }
+  .SoTrang{
+    padding: 0 4px;
+  }
+  .CurrentPage{
+    color:red;
+  }
+
+  

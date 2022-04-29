@@ -27,5 +27,55 @@
 
     <!-- Footer -->
     <?php include_once __SITE_PATH . '/frontend/layouts/footer.php'; ?>
+    <script>
+        function DanhSach(hangsanxuat=''){
+            var TimKiem = '';
+            var timkiem_pc = $('#TimKiem').val();
+            var timkiem_mb = $('#TimKiem_mobile').val();
+            if(timkiem_pc!=''){
+                TimKiem = timkiem_pc;
+            }else if(timkiem_mb!=''){
+                TimKiem = timkiem_mb;
+            }else{
+                TimKiem = '';
+            }
+            $.ajax({
+                type: 'POST',
+                url: '/frontend/home/home_list.php',
+                data: {
+                    TimKiem: TimKiem,
+                    hangsanxuat: hangsanxuat,
+                    tranghientai: $('#TrangHienTai').val()
+                },
+                dataType: 'html',
+                success: function(kq){
+                    $('#danhsach').html(kq)
+                }
+            });
+        }
+        DanhSach();
+        function ThemVaoGioHang(idSanPham){
+            $.ajax({
+                type: 'POST',
+                url: '/frontend/home/home_add_to_cart.php',
+                data: {
+                    idSanPham: idSanPham,
+                    hinhanh: $('#hinhanh_'+idSanPham).attr('src'),
+                    tendienthoai: $('#tendienthoai_'+idSanPham).html(),
+                    giaban: $('#giaban_'+idSanPham).attr('val')
+                },
+                dataType: 'json',
+                success: function(response){
+                    if(response.status ==200){
+                        $('#thongbao_giohang').html(response.soluong);
+                        $('#thongbao_giohang_mobile').html(response.soluong);
+                        $('.modal_cus').css('display','flex');
+                    }else{
+                        alert('Không thể thêm');
+                    }
+                }
+            });
+        }
+    </script>
 </body>
 </html>

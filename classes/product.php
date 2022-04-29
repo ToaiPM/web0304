@@ -74,5 +74,14 @@
             $service = new dataservice();
             return $service->ExecuteNonQuery($sql);
         }
+
+        public function ChiTiet($id){
+            $sql = "SELECT h.product_id, h.product_thumbnail 
+            FROM product h 
+            WHERE h.product_id=$id";
+            $service = new dataservice();
+            $rs = $service->ExecuteQuery($sql);
+            return isset($rs) ? $rs[0] : '';
+        }
     }
 ?>

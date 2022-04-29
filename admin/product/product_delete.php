@@ -11,6 +11,13 @@
             trigger_error("The class '" . $TenLop . "' or the file '" . $TenLop . "' failed to spl_autoload ");
     });
     $chuoiID = isset($_POST['chuoiID']) ? $_POST['chuoiID'] : ''; 
+    $mangID = explode(',',$chuoiID);
+    for($i=0 ; $i < count($mangID) ; $i++){
+        $h = new product();
+        $info = $h->ChiTiet($mangID[$i]);
+        $filename = $info['product_thumbnail'];
+        unlink('../../public/img/products/'.$filename);
+    }
     $h = new product();
     $kq = $h->Xoa($chuoiID);
     if($kq){

@@ -1,0 +1,103 @@
+.container{
+
+}
+.mt-4{
+
+}
+.caption-top{
+
+}
+.thongtingiohang{
+    font-size: 26px;
+    text-align: center;
+    padding: 10px 0px;
+}
+.canhbaorong{
+    color: red;
+    background-color: #f7deae;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.table{
+    width: 100%;
+
+}
+.soluongtru{
+    width: 33px;
+    height: 33px;
+}
+.soluong{
+    width: 33px;
+    text-align: center;
+    height: 33px;
+}
+.soluongcong{
+    width: 33px;
+    height: 33px;
+}
+.sanpham{
+    display: flex;
+}
+.tensp_xoa{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 5px;
+}
+.tensp{
+    font-size: 13px;
+}
+.xoa{
+    margin: 3px 0;
+    text-decoration: none;
+    font-size: 13px;
+    color: #ff0404;
+}
+.dongia{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 80px;
+    color: red;
+    font-size: 18px;
+}
+.ancot_dongia{
+    display: flex;
+}
+.nhom{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 80px;
+}
+.thanhtien{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 80px;
+    color: red;
+    font-size: 18px;
+}
+.thanhtoan{
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin-bottom: 10px;
+}
+.text-danger{
+    color: red;
+}
+.btn-thanhtoan{
+    padding: 5px 8px;
+    font-size: 15px;
+    background-color: #333;
+    color: #fff;
+}
+@media (max-width: 540px){
+    .ancot_dongia{
+        display: none;
+    }
+}

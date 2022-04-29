@@ -557,3 +557,34 @@ html,body{
     }
 }
 
+/* Người dùng đăng nhập */
+.nguoidung_tt{
+    background: #fff;
+    width: 120px;
+    box-shadow: 1px 1px 1px #6a6868;
+    position: absolute;
+    top: 50px;
+    right: 63px;
+    display: none;
+}
+.nguoidung_tt a{
+    text-decoration: none;
+    display: block;
+    padding: 4px 6px;
+    color: #333;
+    font-size: 13px;
+}
+.nguoidung_tt a:first-child{
+    padding-top: 10px;
+}
+.nguoidung_tt a:last-child{
+    padding-bottom: 10px;
+}
+.active{
+    display: block;
+}
+.icon_user{
+    width: 28px;
+    margin-top: 10px;
+    border-radius: 15px;
+}
