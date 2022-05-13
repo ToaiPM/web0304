@@ -43,6 +43,7 @@
 </div>
 <div class="nguoidung_tt">
     <a onclick="DangXuat()" href="#">Đăng xuất</a>
+    <a onclick="ThongTinCaNhan()" href="#">Thông tin cá nhân</a>
     <?php 
         if(isset($_SESSION['role_name'])){
             if($_SESSION['role_name']=='admin' || $_SESSION['role_name']=='user'){ ?>
@@ -111,6 +112,36 @@
         </div>
     </div>
 </div>
+<!-- Thông tin cá nhân -->
+<div class="modal_ttcn">
+    <div class="ttcn_noidung">
+        <div class="ttcn_header">
+            <span class="ttcn_text">Thông tin cá nhân</span>
+        </div>
+        <div class="ttcn_body">
+            <div class="ttcn_body_group">
+                <label class="text_tite" for="hovaten">Họ và tên:</label>
+                <input type="text" class="input_title" id="hovaten">
+            </div>
+            <div class="ttcn_body_group">
+                <label class="text_tite" for="tendangnhap">Tên đăng nhập:</label>
+                <input type="text" class="input_title" id="tendangnhap">
+            </div>
+            <div class="ttcn_body_group">
+                <label class="text_tite" for="email">Email:</label>
+                <input type="text" class="input_title" id="email">
+            </div>
+            <div class="ttcn_body_group">
+                <label class="text_tite" for="dienthoai">Điện thoại:</label>
+                <input type="text" class="input_title" id="dienthoai">
+            </div>
+            <div class="ttcn_body_group">
+                <label class="text_tite" for="diachi">Địa chỉ:</label>
+                <textarea type="text" class="input_title" id="diachi"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
 <script>
     function ThongBaoTrangThai(){
         var soluong = '<?php echo isset($_SESSION["soluong_tong"]) ? $_SESSION["soluong_tong"] : 0; ?>';
@@ -168,7 +199,7 @@
             data: {},
             dataType: 'json',
             success: function(res){
-                if(res.status = 200){
+                if(res.status == 200){
                     $('.nguoidung_dn').css('display','block');
                     $('.nguoidung_dx').css('display','none');
                     window.location="/";
@@ -190,5 +221,19 @@
     }
     function user(){
         $('.nguoidung_tt').toggleClass('active');
+    }
+    function ThongTinCaNhan(){
+        $('.nguoidung_tt').toggleClass('active');
+        $.ajax({
+            type: 'POST',
+            url: '/admin/user/user_detail.php',
+            data: {},
+            dataType: 'json',
+            success: function(res){
+                if(res.status == 200){
+                    //Bật modal thông tin cá nhân
+                }
+            }
+        });
     }
 </script>

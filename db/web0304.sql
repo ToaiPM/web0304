@@ -11,7 +11,7 @@
  Target Server Version : 100408
  File Encoding         : 65001
 
- Date: 06/04/2022 10:48:54
+ Date: 13/05/2022 02:15:44
 */
 
 SET NAMES utf8mb4;
@@ -131,19 +131,20 @@ CREATE TABLE `product`  (
   `product_description` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
   `product_amount` int NULL DEFAULT 1,
   `product_public` int NULL DEFAULT 0,
+  `product_view` int NULL DEFAULT 0,
   `product_deleted` int NULL DEFAULT 0,
   `created_at` datetime NULL DEFAULT NULL,
   `updated_at` datetime NULL DEFAULT NULL,
   PRIMARY KEY (`product_id`) USING BTREE,
   INDEX `category_id`(`category_id` ASC) USING BTREE,
   CONSTRAINT `product_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of product
 -- ----------------------------
-INSERT INTO `product` VALUES (1, 2, 'Galaxy note 10', 8000000, 9000000, NULL, 'Galaxy_note_10_4.png', NULL, 1, 1, 0, '2022-04-05 10:45:39', NULL);
-INSERT INTO `product` VALUES (2, 2, 'Galaxy note 20', 11000000, 12500000, 12000000, 'galaxy-note-20.png', NULL, 1, 1, 0, '2022-04-05 10:47:28', NULL);
+INSERT INTO `product` VALUES (1, 2, 'Galaxy note 10', 8000000, 9000000, NULL, 'Galaxy_note_10_4.png', NULL, 1, 1, 0, 0, '2022-04-05 10:45:39', NULL);
+INSERT INTO `product` VALUES (2, 2, 'Galaxy note 20', 11000000, 12500000, 12000000, 'galaxy-note-20.png', NULL, 1, 0, 0, 0, '2022-04-05 10:47:28', NULL);
 
 -- ----------------------------
 -- Table structure for role
